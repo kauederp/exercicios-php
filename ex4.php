@@ -21,15 +21,23 @@
     <!-- Faça uma função que receba um número inteiro, e retorne 
     se este numero é primo ou não. O valor retornado deve ser 0, 
     caso o numero não for primo. E retorne 1 se o número dor primo.-->
-        <?php
-            (int)$num = $_GET["num"];
-            echo "<h4>".$num."</h4>";  
-            if($num > 1 && $num%2 != 0 && $num%5 != 0 || $num == 2){
-                echo "<h5>1</h5>";  
-            }else{
-                echo "<h5>0</h5>";  
-            }                      
-        ?>
+       <?php
+        $num = $_GET["num"];
+	    echo $num."<br><br>";
+	    function ePrimo($num){
+            for ($i = 2; $i < $num; $i++)
+                if ($num % $i === 0) {
+                    return false;
+                }
+            return $num > 1;
+	    }
+	    if(ePrimo($num) == false){
+	        print("não é primo");
+	    }else{
+	        print("é primo");
+	    }
+    
+    ?>
         <form action="ex4.php" method="GET">
             <label for="num">digite:</label>
             <input type="number" name="num" id="num">
